@@ -72,6 +72,9 @@ RUN npm install && \
     npm run build && \
     npm run update_db
 
+RUN pip install jupyterlab
+EXPOSE 8888
+
 # Expose port (assuming the application runs on port 3000)
 EXPOSE 8675
 
