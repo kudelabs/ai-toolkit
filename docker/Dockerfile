@@ -84,7 +84,7 @@ RUN mkdir -p /app/workspace && \
     chmod -R 777 /app/workspace \
     echo "c.ServerApp.root_dir = '/app/workspace'" >> /root/.jupyter/jupyter_server_config.py
 
-EXPOSE 8675, 8888
+EXPOSE 8675 8888
 
 WORKDIR /
 
