@@ -79,9 +79,9 @@ RUN pip install jupyterlab && \
     echo "c.ServerApp.allow_origin_pat = '.*'" >> /root/.jupyter/jupyter_server_config.py && \
     echo "c.ServerApp.root_dir = '/app'" >> /root/.jupyter/jupyter_server_config.py  
 
-# setup shared directory
+# Setup shared directory
 RUN mkdir -p /app/workspace && \
-    chmod -R 777 /app/workspace \
+    chmod -R 777 /app/workspace && \
     echo "c.ServerApp.root_dir = '/app/workspace'" >> /root/.jupyter/jupyter_server_config.py
 
 EXPOSE 8675 8888
