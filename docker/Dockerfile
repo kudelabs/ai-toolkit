@@ -72,11 +72,19 @@ RUN npm install && \
     npm run build && \
     npm run update_db
 
-RUN pip install jupyterlab
-EXPOSE 8888
+# Install JupyterLab and configure
+RUN pip install jupyterlab && \
+    mkdir -p /root/.jupyter && \
+    echo "c.ServerApp.terminado_settings = {'shell_command': ['/usr/bin/bash']}" > /root/.jupyter/jupyter_server_config.py && \
+    echo "c.ServerApp.allow_origin_pat = '.*'" >> /root/.jupyter/jupyter_server_config.py && \
+    echo "c.ServerApp.root_dir = '/app'" >> /root/.jupyter/jupyter_server_config.py  
 
-# Expose port (assuming the application runs on port 3000)
-EXPOSE 8675
+# setup shared directory
+RUN mkdir -p /app/workspace && \
+    chmod -R 777 /app/workspace \
+    echo "c.ServerApp.root_dir = '/app/workspace'" >> /root/.jupyter/jupyter_server_config.py
+
+EXPOSE 8675, 8888
 
 WORKDIR /
 
