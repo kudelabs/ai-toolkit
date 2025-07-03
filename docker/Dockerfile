@@ -9,7 +9,7 @@ ENV HF_HOME=/workspace/cache/huggingface \
     DEBIAN_FRONTEND=noninteractive \
     PIP_PREFER_BINARY=1 \
     PYTHONUNBUFFERED=1 \
-    WORKDIR=/app
+    WORKDIR=/app \
     TORCH_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0 10.0 12.0"
 
 # Combined system setup
