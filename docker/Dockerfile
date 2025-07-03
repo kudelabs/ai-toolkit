@@ -12,7 +12,7 @@ ENV HF_HOME=/workspace/cache/huggingface \
     TORCH_CUDA_ARCH_LIST="8.0 8.6 8.9 9.0 10.0 12.0"
 
 # Combined system setup
-    RUN apt update && apt install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
     git wget screen python3.11-venv libvips unzip nano htop nvtop \
     build-essential cmake python3-opencv openssh-client openssh-server \
     openssl rsync ffmpeg tmux \
