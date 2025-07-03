@@ -27,6 +27,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_23.x | bash - \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Set aliases for python and pip
+RUN ln -s /usr/bin/python3 /usr/bin/python \
+    && ln -s /usr/bin/pip3 /usr/bin/pip
+
 # ai-toolkit
 WORKDIR /app
 RUN git clone https://github.com/ostris/ai-toolkit.git \
