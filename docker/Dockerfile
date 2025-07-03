@@ -37,8 +37,7 @@ WORKDIR /app/ai-toolkit
 # build tools & requirements.txt
 RUN pip install --no-cache-dir \
     poetry-core==1.9.0 \
-    setuptools==69.5.1 \
-    --pre torch torchvision --index-url https://download.pytorch.org/whl/cu124 --force
+    setuptools==69.5.1
 
 RUN pip install --no-cache-dir \
     -r requirements.txt
